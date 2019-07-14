@@ -8,7 +8,7 @@ val = 'Hey'
 # print(type(a)) # Checks the type of the specified Datatype
 
 import time
-#--------------TypeCasting-------------------
+#------------------TypeCasting-------------------
 
 a1 = int(input("Value 1 : ")) # input function will consider everything as a string.
 a2 = int(input("Value 2 : ")) # unless explicitly typecasted
@@ -25,10 +25,12 @@ print("Added values are : ",res)
 
 #---------------------Errors-------------------
 # For type errors : TypeError | For value errors : ValueError
+
+#--------------------Assignment-------------------
 name = input("Enter your name: ")
 by = int(input("Enter Year of Birth: "))
 gender = input("Enter Your Gender: ")
-age = time.localtime().tm_year - by
+age = time.localtime().tm_year - by # tm_year is a param from localtime method
 
 print("Hey,",name)
 if (gender == 'F' and age > 18) or (gender == 'M' and age > 21):
