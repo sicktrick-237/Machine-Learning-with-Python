@@ -10,9 +10,13 @@ while i<4:
     print("2. Add Products to Cart")
     print("3. Generate Invoice")
     print("4. Exit")
-
-    ch = int(input("Enter your choice"))
-
+    
+    try:
+        ch = int(input("Enter your choice"))
+    except ValueError:
+        print("Invalid Choice")
+        break
+        
     if ch==1:
         iterator = int(input("How many Products to add in Stock"))
         if iterator != 0 or iterator !='':
@@ -25,6 +29,7 @@ while i<4:
                 productInsert.append(cost)
                 products[company] = productInsert
             print(products)
+    
     elif ch==2:
         if products:
             qt = int(input("How many products to Purchase"))
@@ -33,10 +38,8 @@ while i<4:
                     company = input("Enter Company : ")
                     product = input("Enter Product : ")
                     quantity = int(input("Enter Quantity : "))
-                    cart.append(product)
                     productkeys = products.keys()
-                    if company.lower() in str(productkeys).lower():
-                        for each in range(quantity):                            
+                    if company.lower() in str(productkeys).lower():                            
                             productInCart = []
                             productInCart.append(products[company][0])
                             price = quantity*products[company][1]
@@ -46,4 +49,15 @@ while i<4:
                     else:
                         print("Company Not Found")
     elif ch==3:
-        print("Hello")
+        if cart:
+            amount = 0
+            for each in cart:
+                amount += each[1]
+            print("Total Bill : ",amount)
+        else:
+            print("\nPlease add items to cart\n")    
+    elif ch==4:
+        i = 4
+    else:
+        print("Wrong Choice")
+    
